@@ -3,20 +3,17 @@
 import random
 
 print("------------------------------------------")
-print("---------LANZAMIENTO DE UN DADO----------")
+print("---------PIEDRA, PAPEL O TIGERA----------")
 print("------------------------------------------")
 
 # input 
-
+jugador= int(input("escoje piedra(1),papel(2) o tigera(3): ",))
 # processing
 
-maquina = random.randint(1,3)
+maquina = random.choice(["piedra","papel","tigera"])
 
-# usuario = random.randint(1,3)
 
-jugador= int(input("escoje que sacaras:"))
-
-if (maquina==1): #piedra
+if (maquina=="piedra"):
     if (jugador==1):
         rta="empate"
     elif (jugador==2):
@@ -24,19 +21,25 @@ if (maquina==1): #piedra
     else:
         rta="perdiste"
 
-    rta = "PIEDRA"
-elif (usuario==2):
-    rta = "PAPEL"
-elif (usuario==3):
-    rta = "TIGERA"
-else:
-    rta = ""
-
-
-if (d2>6):
-    rta = "usted digito un numero no valido"
-else: 
-    if (d1==d2):
-        rta = "ADIVINASTE EL NUMERO"
+if (maquina=="papel"): 
+    if (jugador==2):
+        rta="empate"
+    elif (jugador==3):
+        rta= "ganaste"
     else:
-        rta = "I AM SORRY..... NO ADIVINASTE"
+        rta="perdiste"
+
+if (maquina=="tigera"):
+    if (jugador==3): 
+        rta="empate"
+    elif (jugador==1):
+        rta= "ganaste"
+    else:
+        rta="perdiste"
+
+
+#output
+            
+print("la maquina saco: " + str(maquina) + " Y " + str(rta ))
+
+
